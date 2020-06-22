@@ -3,7 +3,18 @@ import { sequelize } from './connection';
 
 // I really wouldn't recommend this, but if you want you can still use define() and interfaces
 
-interface User extends Model {
+interface UserAttributes {
+  id: number;
+  username: string;
+  firstName: string;
+  lastName: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+interface UserCreationAttributes extends Partial<UserAttributes> {}
+
+interface User extends Model<UserAttributes, UserCreationAttributes>, UserAttributes {
     id: number;
     username: string;
     firstName: string;
@@ -17,7 +28,7 @@ type UserModel = {
     customStaticMethod(): unknown
 } & typeof Model;
 
-const User = sequelize.define('User', { firstName: DataTypes.STRING }, { tableName: 'users' }) as UserModel;
+const User = sequelize.define<User>('User', { firstName: DataTypes.STRING }, { tableName: 'users' }) as UserModel;
 
 async function test() {
     User.customStaticMethod();
