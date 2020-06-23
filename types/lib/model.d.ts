@@ -458,14 +458,14 @@ export type OrderItem =
   | Col
   | Literal
   | [OrderItemColumn, string]
-  | [OrderItemModel, OrderItemColumn]
-  | [OrderItemModel, OrderItemColumn, string]
-  | [OrderItemModel, OrderItemModel, OrderItemColumn]
-  | [OrderItemModel, OrderItemModel, OrderItemColumn, string]
-  | [OrderItemModel, OrderItemModel, OrderItemModel, OrderItemColumn]
-  | [OrderItemModel, OrderItemModel, OrderItemModel, OrderItemColumn, string]
-  | [OrderItemModel, OrderItemModel, OrderItemModel, OrderItemModel, OrderItemColumn]
-  | [OrderItemModel, OrderItemModel, OrderItemModel, OrderItemModel, OrderItemColumn, string]
+  | [OrderItemAssociation, OrderItemColumn]
+  | [OrderItemAssociation, OrderItemColumn, string]
+  | [OrderItemAssociation, OrderItemAssociation, OrderItemColumn]
+  | [OrderItemAssociation, OrderItemAssociation, OrderItemColumn, string]
+  | [OrderItemAssociation, OrderItemAssociation, OrderItemAssociation, OrderItemColumn]
+  | [OrderItemAssociation, OrderItemAssociation, OrderItemAssociation, OrderItemColumn, string]
+  | [OrderItemAssociation, OrderItemAssociation, OrderItemAssociation, OrderItemAssociation, OrderItemColumn]
+  | [OrderItemAssociation, OrderItemAssociation, OrderItemAssociation, OrderItemAssociation, OrderItemColumn, string]
 export type Order = string | Fn | Col | Literal | OrderItem[];
 
 /**
