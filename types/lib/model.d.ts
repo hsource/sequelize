@@ -2030,14 +2030,8 @@ export abstract class Model<TModelAttributes extends {} = any, TCreationAttribut
   public static upsert<M extends Model>(
     this: ModelStatic<M>,
     values: M['_creationAttributes'],
-    options?: UpsertOptions<M['_attributes']> & { returning?: false | undefined }
-  ): Promise<[M, boolean | null]>;
-
-  public static upsert<M extends Model>(
-    this: ModelStatic<M>,
-    values: M['_creationAttributes'],
-    options?: UpsertOptions<M['_attributes']> & { returning?: true | undefined }
-  ): Promise<[M, boolean | null]>;
+    options?: UpsertOptions<M['_attributes']>
+  ): Promise<boolean>;
 
   /**
    * Create and insert multiple instances in bulk.
